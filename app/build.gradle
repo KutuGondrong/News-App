@@ -1,0 +1,86 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "om.kutugondrong.news"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        testInstrumentationRunner rootProject.ext.testInstrumentationRunner
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField 'String', 'SERVER_BASE_URL', '"https://newsapi.org"'
+        }
+
+        release {
+            buildConfigField 'String', 'SERVER_BASE_URL', '"https://newsapi.org"'
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation rootProject.ext.core_ktx
+    implementation rootProject.ext.appcompat
+    implementation rootProject.ext.material
+    implementation rootProject.ext.constraintlayout
+    testImplementation rootProject.ext.junit
+    androidTestImplementation rootProject.ext.ext_junit
+    androidTestImplementation rootProject.ext.espresso_core
+    androidTestImplementation rootProject.ext.cardview
+    implementation rootProject.ext.glide
+    annotationProcessor rootProject.ext.glide_compiler
+
+    // Lifecycles only (without ViewModel or LiveData)
+    implementation rootProject.ext.lifecycle_runtime
+    // ViewModel
+    implementation rootProject.ext.lifecycle_viewmodel
+    // LiveData
+    implementation rootProject.ext.lifecycle_livedata
+    // Coroutines
+    implementation rootProject.ext.coroutines
+    //Timber
+    implementation rootProject.ext.timber
+
+    // okhttp
+    implementation rootProject.ext.gson
+    implementation rootProject.ext.okhttp
+    implementation rootProject.ext.logging_interceptor
+
+    // retrofit
+    implementation rootProject.ext.retrofit
+    implementation rootProject.ext.converter_gson
+    implementation rootProject.ext.rxjava2
+    implementation rootProject.ext.converter_scalars
+
+    // kotlin based dependency injection koin
+    implementation rootProject.ext.koin_viewmodel
+    implementation rootProject.ext.koin_android
+    implementation rootProject.ext.koin_scope
+
+
+    implementation rootProject.ext.shimmer
+
+
+}

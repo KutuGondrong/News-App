@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="44dp"
+    android:orientation="horizontal"
+    android:padding="3sp"
+    android:paddingStart="10dp"
+    android:paddingEnd="0dp">
+
+    <TextView
+        android:id="@+id/navigation_title"
+        android:layout_width="match_parent"
+        android:layout_height="35sp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="7sp"
+        android:gravity="center_vertical"
+        android:text="Custom Navigation Drawer Row"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+</LinearLayout>
